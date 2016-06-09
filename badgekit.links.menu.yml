@@ -1,0 +1,10 @@
+badgekit.admin_overview:
+  title: 'BadgeKit API'
+  route_name: badgekit.admin_settings
+  description: 'Configure BadgeKit API access settings'
+  parent: system.admin_config_services
+
+badgekit.badges_list:
+  title: 'Badges'
+  route_name: badgekit.badges_index
+  menu_name: main

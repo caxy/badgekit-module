@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains badgekit.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function badgekit_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the badgekit module.
+    case 'help.page.badgekit':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('BadgeKit API integration') . '</p>';
+      return $output;
+
+    default:
+  }
+}

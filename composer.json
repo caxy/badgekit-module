@@ -1,0 +1,16 @@
+{
+  "name": "drupal/badgekit",
+  "type": "drupal-module",
+  "description": "BadgeKit API integration",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/badgekit",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "http://drupal.org/project/issues/badgekit",
+    "source": "http://cgit.drupalcode.org/badgekit"
+  },
+  "require": {
+    "caxy/badgekit-client": "^1.0@dev"
+  }
+}

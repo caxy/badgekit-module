@@ -1,0 +1,62 @@
+
+badgekit.admin_settings:
+  path: '/admin/config/services/badgekit'
+  defaults:
+    _form: '\Drupal\badgekit\Form\SettingsForm'
+    _title: 'BadgeKit settings'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
+
+badgekit.badges_index:
+  path: '/badges'
+  defaults:
+    _controller: '\Drupal\badgekit\Controller\BadgesController::indexAction'
+    _title: 'Badges'
+  requirements:
+    _permission: 'access content'
+
+badgekit.badges_apply:
+  path: '/badges/apply'
+  defaults:
+    _form: '\Drupal\badgekit\Form\ApplicationForm'
+    _title: 'Badges'
+  requirements:
+    _permission: 'access content'
+
+badgekit.user.badges:
+  path: '/user/{user}/badgekit/badges'
+  defaults:
+    _controller: '\Drupal\badgekit\Controller\UserController::badgeInstancesAction'
+  requirements:
+    _permission: 'access content'
+    user: \d+
+  options:
+    parameters:
+      user:
+        type: entity:user
+
+badgekit.user.assigned:
+  path: '/user/{user}/badgekit/applications/assigned'
+  defaults:
+    _controller: '\Drupal\badgekit\Controller\UserController::assignedApplicationsAction'
+  requirements:
+    _permission: 'access content'
+    user: \d+
+  options:
+    parameters:
+      user:
+        type: entity:user
+
+badgekit.user.submitted:
+  path: '/user/{user}/badgekit/applications/submitted'
+  defaults:
+    _controller: '\Drupal\badgekit\Controller\UserController::submittedApplicationsAction'
+  requirements:
+    _permission: 'access content'
+    user: \d+
+  options:
+    parameters:
+      user:
+        type: entity:user

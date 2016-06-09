@@ -1,0 +1,19 @@
+badgekit.user:
+  base_route: entity.user.canonical
+  route_name: badgekit.user.badges
+  title: 'BadgeKit'
+
+badgekit.user.badges:
+  route_name: badgekit.user.badges
+  parent_id: badgekit.user
+  title: 'Badge Instances'
+
+badgekit.user.applications_submitted:
+  route_name: badgekit.user.submitted
+  parent_id: badgekit.user
+  title: 'Submitted Applications'
+
+badgekit.user.applications_assigned:
+  route_name: badgekit.user.assigned
+  parent_id: badgekit.user
+  title: 'Assigned Applications'

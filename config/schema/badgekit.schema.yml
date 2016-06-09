@@ -1,0 +1,19 @@
+badgekit.settings:
+  type: config_object
+  label: 'BadgeKit settings'
+  mapping:
+    url:
+      type: url
+      label: 'BadgeKit API server URL'
+    secret:
+      type: string
+      label: 'Secret'
+    system:
+      type: string
+      label: 'System'
+    issuer:
+      type: string
+      label: 'Issuer'
+    program:
+      type: string
+      label: 'Program'

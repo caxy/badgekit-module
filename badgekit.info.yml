@@ -1,0 +1,5 @@
+name: BadgeKit
+type: module
+description: BadgeKit API integration
+core: 8.x
+configure: badgekit.admin_settings

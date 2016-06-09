@@ -1,0 +1,31 @@
+services:
+  badgekit.service_client:
+    class: Caxy\BadgeKit\ServiceClient
+    factory: badgekit.service_client_factory:create
+    arguments: ['@badgekit.http_client']
+  badgekit.service_client_factory:
+    class: Drupal\badgekit\ServiceClientFactory
+    arguments: ['@config.factory']
+  badgekit.jwt_middleware_mapped:
+    class: \Closure
+    public: false
+    factory: GuzzleHttp\Middleware::mapRequest
+    arguments: ['@badgekit.jwt_middleware']
+  badgekit.jwt_middleware:
+    class: Caxy\BadgeKit\JwtMiddleware
+    public: false
+    factory: ['@badgekit.jwt_middleware_factory','create']
+  badgekit.jwt_middleware_factory:
+    class: Drupal\badgekit\JwtMiddlewareFactory
+    arguments: ['@config.factory']
+  badgekit.http_handler_stack:
+    public: true
+    parent: http_handler_stack
+    calls:
+      - [ push, [ '@badgekit.jwt_middleware_mapped' ] ]
+  badgekit.http_client:
+    parent: http_client
+    factory: ['@badgekit.http_client_factory','fromOptions']
+  badgekit.http_client_factory:
+    class: Drupal\badgekit\ClientFactory
+    arguments: ['@badgekit.http_handler_stack', '@config.factory']
